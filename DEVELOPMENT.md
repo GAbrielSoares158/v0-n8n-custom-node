@@ -6,7 +6,7 @@ Este documento contém informações detalhadas para desenvolvedores que desejam
 
 ### Estrutura de Classes
 
-\`\`\`typescript
+```typescript
 // Classe principal do custom node
 class Random implements INodeType {
   description: INodeTypeDescription;
@@ -20,7 +20,7 @@ class RandomOrgClient {
   private static parseResponse(data: string): number;
   private static handleApiError(error: any): Error;
 }
-\`\`\`
+**\`\`\`**
 
 ### Fluxo de Execução
 
@@ -38,20 +38,20 @@ class RandomOrgClient {
 - **Interfaces**: PascalCase com prefixo I (`INodeType`)
 
 #### Estrutura de Arquivos
-\`\`\`
+```
 src/
 ├── nodes/           # Implementações dos custom nodes
 ├── utils/           # Utilitários e clientes de API
 ├── types/           # Definições de tipos TypeScript
 ├── __tests__/       # Testes unitários
 └── index.ts         # Ponto de entrada
-\`\`\`
+```
 
 ## Configuração do Ambiente de Desenvolvimento
 
 ### 1. Setup Inicial
 
-\`\`\`bash
+```bash
 # Clone e instale dependências
 git clone <repo-url>
 cd onfly-n8n-challenge
@@ -59,11 +59,11 @@ npm install
 
 # Configure o ambiente de desenvolvimento
 npm run dev  # TypeScript em modo watch
-\`\`\`
+```
 
 ### 2. Desenvolvimento com Hot Reload
 
-\`\`\`bash
+```bash
 # Terminal 1: Build contínuo
 npm run dev
 
@@ -72,26 +72,26 @@ watch -n 2 'npm run build && cp -r dist/* custom-nodes/ && cp package.json custo
 
 # Terminal 3: n8n
 docker-compose up n8n
-\`\`\`
+```
 
 ### 3. Debugging
 
 #### Logs do n8n
-\`\`\`bash
+```bash
 docker-compose logs -f n8n
-\`\`\`
+```
 
 #### Debug do Custom Node
 Adicione logs no código:
-\`\`\`typescript
+```typescript
 console.log('[DEBUG] Random node executed with params:', { min, max });
-\`\`\`
+```
 
 ## Testes
 
 ### Estrutura de Testes
 
-\`\`\`typescript
+```typescript
 describe('RandomOrgClient', () => {
   beforeEach(() => {
     jest.clearAllMocks();
@@ -109,11 +109,11 @@ describe('RandomOrgClient', () => {
     expect(result).toBe(42);
   });
 });
-\`\`\`
+```
 
 ### Executando Testes
 
-\`\`\`bash
+```bash
 # Todos os testes
 npm test
 
@@ -125,7 +125,7 @@ npm test -- --coverage
 
 # Modo watch
 npm test -- --watch
-\`\`\`
+```
 
 ### Cobertura de Testes
 
@@ -138,8 +138,7 @@ O projeto mantém cobertura mínima de:
 ## Integração com n8n
 
 ### Estrutura do Node Description
-
-\`\`\`typescript
+```typescript
 description: INodeTypeDescription = {
   displayName: 'Random',           // Nome exibido na UI
   name: 'random',                  // Nome interno (lowercase)
@@ -153,11 +152,11 @@ description: INodeTypeDescription = {
   outputs: ['main'],              // Tipos de saída
   properties: [...]               // Propriedades configuráveis
 };
-\`\`\`
+```
 
 ### Propriedades Configuráveis
 
-\`\`\`typescript
+```typescript
 properties: [
   {
     displayName: 'Operation',      // Nome exibido
@@ -172,11 +171,11 @@ properties: [
     }
   }
 ]
-\`\`\`
+```
 
 ### Método Execute
 
-\`\`\`typescript
+```typescript
 async execute(this: IExecuteFunctions): Promise<INodeExecutionData[][]> {
   const items = this.getInputData();
   const returnData: INodeExecutionData[] = [];
@@ -210,7 +209,7 @@ async execute(this: IExecuteFunctions): Promise<INodeExecutionData[][]> {
 
   return [returnData];
 }
-\`\`\`
+```
 
 ## API do Random.org
 
@@ -236,7 +235,7 @@ async execute(this: IExecuteFunctions): Promise<INodeExecutionData[][]> {
 
 ### Tratamento de Respostas
 
-\`\`\`typescript
+```typescript
 // Resposta de sucesso
 "42\n"
 
@@ -247,13 +246,13 @@ async execute(this: IExecuteFunctions): Promise<INodeExecutionData[][]> {
 200: Sucesso
 400: Parâmetros inválidos
 503: Serviço indisponível
-\`\`\`
+```
 
 ## Deployment
 
 ### Build para Produção
 
-\`\`\`bash
+```bash
 # Build otimizado
 npm run build
 
@@ -263,33 +262,33 @@ ls -la dist/
 # Copiar para pasta de custom nodes
 cp -r dist/* custom-nodes/
 cp package.json custom-nodes/
-\`\`\`
+```
 
 ### Docker Build
 
-\`\`\`bash
+```bash
 # Build da imagem
 docker build -t n8n-random-node .
 
 # Executar container
 docker run -v $(pwd)/output:/output n8n-random-node
-\`\`\`
+```
 
 ### Publicação no npm
 
-\`\`\`bash
+```bash
 # Preparar para publicação
 npm run prepublishOnly
 
 # Publicar (se for um pacote público)
 npm publish
-\`\`\`
+```
 
 ## Troubleshooting de Desenvolvimento
 
 ### Problema: TypeScript não compila
 
-\`\`\`bash
+```bash
 # Verificar versão do TypeScript
 npx tsc --version
 
@@ -297,7 +296,7 @@ npx tsc --version
 rm -rf dist/ node_modules/
 npm install
 npm run build
-\`\`\`
+```
 
 ### Problema: Custom node não carrega
 
@@ -308,7 +307,7 @@ npm run build
 
 ### Problema: Testes falhando
 
-\`\`\`bash
+```bash
 # Limpar cache do Jest
 npx jest --clearCache
 
@@ -317,7 +316,7 @@ npm test -- --verbose
 
 # Executar teste específico
 npm test -- --testNamePattern="should generate random number"
-\`\`\`
+```
 
 ## Contribuindo
 
@@ -331,7 +330,7 @@ npm test -- --testNamePattern="should generate random number"
 
 ### Padrões de Commit
 
-\`\`\`
+```
 feat: adiciona nova funcionalidade
 fix: corrige bug
 docs: atualiza documentação
@@ -339,7 +338,7 @@ style: mudanças de formatação
 refactor: refatoração de código
 test: adiciona ou modifica testes
 chore: tarefas de manutenção
-\`\`\`
+```
 
 ### Code Review
 
