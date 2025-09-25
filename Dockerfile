@@ -9,16 +9,16 @@ COPY tsconfig.json ./
 # Install dependencies
 RUN npm ci
 
-# Copy source code
+# Copiar código fonte
 COPY src/ ./src/
 
-# Build the custom node
+# Build do Custom Node
 RUN npm run build
 
-# Create the output directory structure
+# Criando a estrutura do diretório de saída
 RUN mkdir -p /output/nodes /output/credentials
 
-# Copy built files to output
+# Copiar arquivos compilados para saída
 RUN cp -r dist/* /output/
 RUN cp package.json /output/
 
