@@ -53,38 +53,38 @@ onfly-n8n-challenge/
 
 ### 1. Clone o repositório
 
-\`\`\`bash
+```bash
 git clone https://github.com/gabrielsoaresreis2004/onfly-n8n-challenge.git
 cd onfly-n8n-challenge
-\`\`\`
+```
 
 ### 2. Instale as dependências
 
-\`\`\`bash
+```bash
 npm install
-\`\`\`
+```
 
 ### 3. Build do custom node
 
-\`\`\`bash
+```bash
 npm run build
-\`\`\`
+```
 
 ### 4. Prepare a pasta de custom nodes
 
-\`\`\`bash
+```bash
 mkdir -p custom-nodes
 cp -r dist/* custom-nodes/
 cp package.json custom-nodes/
-\`\`\`
+```
 
 ## Executando o Projeto
 
 ### 1. Inicie os serviços com Docker Compose
 
-\`\`\`bash
+```bash
 docker-compose up -d
-\`\`\`
+```
 
 Este comando irá:
 - Iniciar uma instância PostgreSQL para o n8n
@@ -115,7 +115,7 @@ Abra seu navegador e acesse: `http://localhost:5678`
 
 O projeto usa as seguintes variáveis de ambiente (já configuradas no docker-compose.yml):
 
-\`\`\`env
+```env
 # Banco de dados PostgreSQL
 DB_TYPE=postgresdb
 DB_POSTGRESDB_HOST=postgres
@@ -132,12 +132,12 @@ N8N_BASIC_AUTH_PASSWORD=admin123
 # Configurações gerais
 WEBHOOK_URL=http://localhost:5678/
 GENERIC_TIMEZONE=America/Sao_Paulo
-\`\`\`
+```
 
 ### Estrutura de Pastas do n8n
 
 O custom node é instalado em:
-\`\`\`
+```
 /home/node/.n8n/custom/
 ├── nodes/
 │   └── Random/
@@ -147,31 +147,30 @@ O custom node é instalado em:
 ├── utils/
 ├── index.js
 └── package.json
-\`\`\`
+```
 
 ## Executando os Testes
 
 ### Testes unitários
 
-\`\`\`bash
+```bash
 npm test
-\`\`\`
+```
 
 ### Testes com cobertura
 
-\`\`\`bash
+```bash
 npm run test -- --coverage
-\`\`\`
+```
 
 ### Modo watch (desenvolvimento)
-
-\`\`\`bash
+```bash
 npm run test -- --watch
-\`\`\`
+```
 
 ## Scripts Disponíveis
 
-\`\`\`bash
+```bash
 # Build do projeto
 npm run build
 
@@ -192,7 +191,7 @@ npm run format
 
 # Cópia de ícones
 npm run copy-icons
-\`\`\`
+```
 
 ## API do Random.org
 
@@ -210,9 +209,9 @@ O custom node utiliza a API pública do Random.org:
 - `rnd=new`: Novo número aleatório
 
 **Exemplo de requisição:**
-\`\`\`
+```
 https://www.random.org/integers/?num=1&min=1&max=100&col=1&base=10&format=plain&rnd=new
-\`\`\`
+```
 
 ## Tratamento de Erros
 
@@ -227,15 +226,15 @@ O custom node implementa tratamento robusto de erros:
 ## Exemplo de Uso
 
 ### Input
-\`\`\`json
+```json
 {
   "min": 1,
   "max": 100
 }
-\`\`\`
+```
 
 ### Output
-\`\`\`json
+```json
 {
   "randomNumber": 42,
   "min": 1,
@@ -243,7 +242,7 @@ O custom node implementa tratamento robusto de erros:
   "timestamp": "2024-09-24T12:00:00.000Z",
   "source": "Random.org"
 }
-\`\`\`
+```
 
 ## Desenvolvimento
 
