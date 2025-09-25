@@ -20,7 +20,7 @@ Desenvolver um conector personalizado para n8n que:
 
 ## Estrutura do Projeto
 
-\`\`\`
+```
 onfly-n8n-challenge/
 ├── src/
 │   ├── nodes/
@@ -41,7 +41,7 @@ onfly-n8n-challenge/
 ├── tsconfig.json                   # Configuração TypeScript
 ├── jest.config.js                  # Configuração dos testes
 └── README.md                       # Este arquivo
-\`\`\`
+```
 
 ## Pré-requisitos
 
