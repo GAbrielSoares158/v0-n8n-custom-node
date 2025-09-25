@@ -1,7 +1,7 @@
 {
   "name": "n8n-nodes-random-generator",
   "version": "1.0.0",
-  "description": "Custom n8n node for generating true random numbers using Random.org API",
+  "description": "Nó n8n personalizado para gerar números aleatórios verdadeiros usando a API Random.org",
   "keywords": [
     "n8n-community-node-package"
   ],
