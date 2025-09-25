@@ -299,7 +299,7 @@ Para debug, você pode:
 
 **Gabriel Soares**
 - Email: gabrielsoaresreis2004@gmail.com
-- GitHub: [@gabrielsoaresreis2004](https://github.com/gabrielsoaresreis2004)
+- GitHub: [@GAbrielSoares158](https://github.com/GAbrielSoares158)
 
 ## Licença
 
