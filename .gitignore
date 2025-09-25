@@ -1,29 +1,29 @@
-# Dependencies
+# Dependencias
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Build outputs
+# Build saídas
 dist/
 build/
 *.tsbuildinfo
 
-# Environment variables
+# Variaveis do ambiente
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
-# IDE files
+# Arquivos IDE
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 
-# OS generated files
+# Arquivos gerados pelo sistema operacional
 .DS_Store
 .DS_Store?
 ._*
@@ -36,28 +36,28 @@ Thumbs.db
 logs/
 *.log
 
-# Coverage directory used by tools like istanbul
+# conversor de diretorio utilizado
 coverage/
 *.lcov
 
-# nyc test coverage
+# testes nyc
 .nyc_output
 
 # Docker
 .dockerignore
 
-# Custom nodes output
+# Node customizado de saida 
 custom-nodes/
 
-# Docker volumes
+# Volumes do Docker
 postgres_data/
 n8n_data/
 
-# Temporary files
+# Arquivos temporários
 tmp/
 temp/
 
-# Package manager
+# Gerenciado do Package 
 package-lock.json
 yarn.lock
 
